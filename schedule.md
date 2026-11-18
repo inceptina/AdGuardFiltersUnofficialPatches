@@ -1,0 +1,8 @@
+# 対応予定
+
+対応を終えたら [completed.json](completed.json) の `status` を
+`fixed`（修正済み）または `skipped`（見送り）に変更してください。
+
+1. [#221535 economictimes.indiatimes.com](https://github.com/AdguardTeam/AdguardFilters/issues/221535)
+2. [#221579 www.bookingpressplugin.com](https://github.com/AdguardTeam/AdguardFilters/issues/221579)
+3. [#221605 butternutbakeryblog.com](https://github.com/AdguardTeam/AdguardFilters/issues/221605)
