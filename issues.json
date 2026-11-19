@@ -10977,5 +10977,77 @@
       "A: Problematic",
       "Ad-Shield"
     ]
+  },
+  {
+    "number": 247165,
+    "url": "https://github.com/AdguardTeam/AdguardFilters/issues/247165",
+    "title": "www.czd.pl ",
+    "created_at": "2026-11-14T06:00:50Z",
+    "labels": [
+      "T: Annoyance",
+      "P4: Low",
+      "A: Won't fix",
+      "A: In progress",
+      "N: AdGuard Browser Extension"
+    ],
+    "state": "closed"
+  },
+  {
+    "number": 247241,
+    "url": "https://github.com/AdguardTeam/AdguardFilters/issues/247241",
+    "title": "www.versicherungsbote.de ",
+    "created_at": "2026-11-14T20:15:57Z",
+    "labels": [
+      "T: Annoyance",
+      "P4: Low",
+      "A: Won't fix",
+      "A: In progress",
+      "N: AdGuard Browser Extension"
+    ],
+    "state": "closed"
+  },
+  {
+    "number": 247251,
+    "url": "https://github.com/AdguardTeam/AdguardFilters/issues/247251",
+    "title": "chrismon.de ",
+    "created_at": "2026-11-14T22:28:28Z",
+    "labels": [
+      "T: Ads",
+      "P4: Low",
+      "A: Won't fix",
+      "A: In progress",
+      "N: AdGuard Browser Extension"
+    ],
+    "state": "closed"
+  },
+  {
+    "number": 247271,
+    "url": "https://github.com/AdguardTeam/AdguardFilters/issues/247271",
+    "title": "www.index.hr",
+    "created_at": "2026-11-15T08:14:06Z",
+    "labels": [
+      "T: Anti Adblock Script",
+      "T: Ads",
+      "P1: Critical",
+      "N: AdGuard for iOS",
+      "N: AdGuard Browser Extension",
+      "A: Problematic",
+      "Ad-Shield"
+    ],
+    "state": "open"
+  },
+  {
+    "number": 247515,
+    "url": "https://github.com/AdguardTeam/AdguardFilters/issues/247515",
+    "title": "shinagawa.keizai.biz",
+    "created_at": "2026-11-18T12:35:37Z",
+    "labels": [
+      "T: Anti Adblock Script",
+      "P4: Low",
+      "N: AdGuard for iOS",
+      "A: Problematic",
+      "Ad-Shield"
+    ],
+    "state": "open"
   }
 ]
