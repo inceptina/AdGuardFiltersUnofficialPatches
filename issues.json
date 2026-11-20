@@ -11049,5 +11049,34 @@
       "Ad-Shield"
     ],
     "state": "open"
+  },
+  {
+    "number": 247569,
+    "url": "https://github.com/AdguardTeam/AdguardFilters/issues/247569",
+    "title": "www.mavericktruckclub.com",
+    "created_at": "2026-11-19T09:45:39Z",
+    "labels": [
+      "T: Incorrect Blocking",
+      "P4: Low",
+      "A: In progress",
+      "N: AdGuard Browser Extension",
+      "A: Problematic",
+      "Ad-Shield"
+    ],
+    "state": "closed"
+  },
+  {
+    "number": 247575,
+    "url": "https://github.com/AdguardTeam/AdguardFilters/issues/247575",
+    "title": "lifeintheuktestweb.co.uk",
+    "created_at": "2026-11-19T12:11:38Z",
+    "labels": [
+      "A: Cannot reproduce",
+      "P4: Low",
+      "N: AdGuard for Mac",
+      "A: Problematic",
+      "Ad-Shield"
+    ],
+    "state": "open"
   }
 ]
