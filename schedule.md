@@ -1,6 +1,6 @@
 # 対応予定
 
-対応を終えたら [completed.json](completed.json) の `status` を
+対応を終えたら [issue-status.json](issue-status.json) の `status` を
 `fixed`（修正済み）または `skipped`（見送り）に変更してください。
 
 1. [#221535 economictimes.indiatimes.com](https://github.com/AdguardTeam/AdguardFilters/issues/221535)

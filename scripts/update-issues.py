@@ -94,17 +94,17 @@ def fill_queue(issues, completed):
         status = record["status"]
         issue_numbers = record["issues"]
         if status not in STATUSES or not isinstance(issue_numbers, list) or not issue_numbers:
-            raise ValueError("each completed.json record needs a valid status and an issues list")
+            raise ValueError("each issue-status.json record needs a valid status and an issues list")
         for number in issue_numbers:
             if type(number) is not int or number not in numbers:
-                raise ValueError(f"unknown issue in completed.json: {number}")
+                raise ValueError(f"unknown issue in issue-status.json: {number}")
             if number in tracked:
-                raise ValueError(f"issue #{number} appears more than once in completed.json")
+                raise ValueError(f"issue #{number} appears more than once in issue-status.json")
             tracked.add(number)
         if status == "open":
             active.update(issue_numbers)
     if len(active) > QUEUE_SIZE:
-        raise ValueError(f"completed.json has more than {QUEUE_SIZE} open issues")
+        raise ValueError(f"issue-status.json has more than {QUEUE_SIZE} open issues")
 
     for issue in issues:
         if len(active) == QUEUE_SIZE:
@@ -125,7 +125,7 @@ def render_schedule(active):
     lines = [
         "# 対応予定",
         "",
-        "対応を終えたら [completed.json](completed.json) の `status` を",
+        "対応を終えたら [issue-status.json](issue-status.json) の `status` を",
         "`fixed`（修正済み）または `skipped`（見送り）に変更してください。",
         "",
     ]
@@ -162,7 +162,7 @@ def main():
     args = parser.parse_args()
 
     issues_path = ROOT / "issues.json"
-    completed_path = ROOT / "completed.json"
+    completed_path = ROOT / "issue-status.json"
     try:
         issues = read_list(issues_path)
         completed = read_list(completed_path)
