@@ -7,7 +7,7 @@ from pathlib import Path
 
 FILTERS = Path(__file__).resolve().parents[1] / "filters"
 ANNOYANCES = FILTERS / "annoyances.txt"
-DNS = FILTERS / "DNS.txt"
+DNS = FILTERS / "dns.txt"
 HEADER = (
     "! Title: Unofficial Patches for AdGuard - Annoyances\n"
     "! Description: Combined unofficial filters for web annoyances.\n"
