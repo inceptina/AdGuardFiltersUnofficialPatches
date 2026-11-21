@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Spanish / Portuguese
+! Description: Supplemental rules for the AdGuard Spanish / Portuguese filter.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

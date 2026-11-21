@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - French
+! Description: Supplemental rules for the AdGuard French filter.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

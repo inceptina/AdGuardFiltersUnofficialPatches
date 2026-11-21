@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Polish
+! Description: Supplemental rules for the AdGuard Polish filter.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

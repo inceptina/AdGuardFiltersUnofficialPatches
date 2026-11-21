@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Dutch
+! Description: Supplemental rules for the AdGuard Dutch filter.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

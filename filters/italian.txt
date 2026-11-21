@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Italian
+! Description: Supplemental rules for the AdGuard Italian filter.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

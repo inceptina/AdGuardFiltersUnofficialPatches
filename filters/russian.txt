@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Russian
+! Description: Supplemental rules for the AdGuard Russian filter.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
