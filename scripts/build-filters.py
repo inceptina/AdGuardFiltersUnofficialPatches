@@ -14,7 +14,8 @@ HEADER = """! Title: AdGuard Annoyances filter Unofficial Patches
 ! Version: {version}
 ! TimeUpdated: {updated}
 ! Expires: 5 days (update frequency)
-! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches"""
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
+! License: https://github.com/inceptina/AdGuardFiltersUnofficialPatches/blob/main/LICENSE"""
 METADATA = (
     "! Title:", "! Description:", "! Version:", "! TimeUpdated:",
     "! Expires:", "! Homepage:", "! License:", "! Checksum:", "! Diff-Path:",
