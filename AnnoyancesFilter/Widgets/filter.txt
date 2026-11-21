@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Widgets
+! Description: Unofficial supplemental rules for the Widgets category.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

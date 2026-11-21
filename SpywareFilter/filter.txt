@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Tracking Protection
+! Description: Unofficial supplemental rules for the Tracking Protection category.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

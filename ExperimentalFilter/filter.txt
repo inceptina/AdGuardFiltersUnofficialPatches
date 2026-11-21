@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Experimental
+! Description: Unofficial supplemental rules for the Experimental category.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

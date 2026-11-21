@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Other Annoyances
+! Description: Unofficial supplemental rules for the Other Annoyances category.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

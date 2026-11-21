@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Mobile App Banners
+! Description: Unofficial supplemental rules for the Mobile App Banners category.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Social Media
+! Description: Unofficial supplemental rules for the Social Media category.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

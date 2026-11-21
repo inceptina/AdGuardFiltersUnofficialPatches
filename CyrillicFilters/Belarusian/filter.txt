@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Belarusian
+! Description: Unofficial supplemental rules for the Belarusian category.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
