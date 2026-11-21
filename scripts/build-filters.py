@@ -9,8 +9,8 @@ from pathlib import Path
 FILTERS = Path(__file__).resolve().parents[1] / "filters"
 ANNOYANCES = FILTERS / "annoyances.txt"
 DNS = FILTERS / "dns.txt"
-HEADER = """! Title: AdGuard Annoyances filter Unofficial Patches
-! Description: Unofficial patch for AdGuard Annoyances filter
+HEADER = """! Title: AdGuard {name} filter Unofficial Patches
+! Description: Unofficial patch for AdGuard {name} filter
 ! Version: {version}
 ! TimeUpdated: {updated}
 ! Expires: 5 days (update frequency)
@@ -22,6 +22,20 @@ METADATA = (
 )
 LABEL = r"[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?"
 DOMAIN_RULE = re.compile(rf"\|\|{LABEL}(?:\.{LABEL})*\^", re.IGNORECASE | re.ASCII)
+
+
+def write_filter(path, name, body):
+    previous = path.read_text(encoding="utf-8") if path.exists() else ""
+    previous_header, _, previous_body = previous.partition("\n\n")
+    updated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    if body == previous_body.rstrip("\n"):
+        for line in previous_header.splitlines():
+            if line.startswith("! TimeUpdated: "):
+                updated = line.removeprefix("! TimeUpdated: ")
+                break
+    version = datetime.fromisoformat(updated).strftime("%y%m%d")
+    header = HEADER.format(name=name, updated=updated, version=version)
+    path.write_text(header + ("\n\n" + body if body else "") + "\n", encoding="utf-8")
 
 
 def main():
@@ -42,24 +56,14 @@ def main():
         if content:
             sections.append(content)
     body = "\n\n".join(sections)
-    previous = ANNOYANCES.read_text(encoding="utf-8") if ANNOYANCES.exists() else ""
-    previous_header, _, previous_body = previous.partition("\n\n")
-    updated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    if body == previous_body.rstrip("\n"):
-        for line in previous_header.splitlines():
-            if line.startswith("! TimeUpdated: "):
-                updated = line.removeprefix("! TimeUpdated: ")
-                break
-    version = datetime.fromisoformat(updated).strftime("%y%m%d")
-    header = HEADER.format(updated=updated, version=version)
-    ANNOYANCES.write_text(header + ("\n\n" + body if body else "") + "\n", encoding="utf-8")
+    write_filter(ANNOYANCES, "Annoyances", body)
 
     rules = {}
     for lines in sources.values():
         for line in lines:
             if DOMAIN_RULE.fullmatch(line):
                 rules.setdefault(line.lower(), line)
-    DNS.write_text("".join(rule + "\n" for rule in rules.values()), encoding="utf-8")
+    write_filter(DNS, "DNS", "\n".join(rules.values()))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,7 @@
+! Title: AdGuard DNS filter Unofficial Patches
+! Description: Unofficial patch for AdGuard DNS filter
+! Version: 261121
+! TimeUpdated: 2026-11-21T03:57:38+00:00
+! Expires: 5 days (update frequency)
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
+! License: https://github.com/inceptina/AdGuardFiltersUnofficialPatches/blob/main/LICENSE
