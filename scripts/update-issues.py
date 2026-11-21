@@ -83,28 +83,36 @@ def site_from_title(title):
     return next(iter(urls)) if len(urls) == 1 else None
 
 
-def fill_queue(issues, completed):
+def fill_queue(issues, statuses, history):
+    if any(record["status"] not in {"fixed", "skipped"} for record in history):
+        raise ValueError("issue-history.json must contain only fixed or skipped records")
+
+    # An interrupted local write may already have saved a finished record.
+    statuses[:] = [record for record in statuses if record not in history]
     numbers = {issue["number"] for issue in issues}
     if len(numbers) != len(issues):
         raise ValueError("issues.json contains duplicate issue numbers")
 
     tracked = set()
     active = set()
-    for record in completed:
+    for record in [*history, *statuses]:
         status = record["status"]
         issue_numbers = record["issues"]
         if status not in STATUSES or not isinstance(issue_numbers, list) or not issue_numbers:
-            raise ValueError("each issue-status.json record needs a valid status and an issues list")
+            raise ValueError("each status record needs a valid status and an issues list")
         for number in issue_numbers:
             if type(number) is not int or number not in numbers:
-                raise ValueError(f"unknown issue in issue-status.json: {number}")
+                raise ValueError(f"unknown issue in status files: {number}")
             if number in tracked:
-                raise ValueError(f"issue #{number} appears more than once in issue-status.json")
+                raise ValueError(f"issue #{number} appears more than once in the status files")
             tracked.add(number)
         if status == "open":
             active.update(issue_numbers)
     if len(active) > QUEUE_SIZE:
         raise ValueError(f"issue-status.json has more than {QUEUE_SIZE} open issues")
+
+    history.extend(record for record in statuses if record["status"] != "open")
+    statuses[:] = [record for record in statuses if record["status"] == "open"]
 
     for issue in issues:
         if len(active) == QUEUE_SIZE:
@@ -112,7 +120,7 @@ def fill_queue(issues, completed):
         number = issue["number"]
         if number in tracked:
             continue
-        completed.append({
+        statuses.append({
             "siteurl": site_from_title(issue["title"]),
             "issues": [number],
             "status": "open",
@@ -127,6 +135,7 @@ def render_schedule(active):
         "",
         "対応を終えたら [issue-status.json](issue-status.json) の `status` を",
         "`fixed`（修正済み）または `skipped`（見送り）に変更してください。",
+        "処理済みの案件は [issue-history.json](issue-history.json) に移ります。",
         "",
     ]
     if not active:
@@ -162,18 +171,21 @@ def main():
     args = parser.parse_args()
 
     issues_path = ROOT / "issues.json"
-    completed_path = ROOT / "issue-status.json"
+    statuses_path = ROOT / "issue-status.json"
+    history_path = ROOT / "issue-history.json"
     try:
         issues = read_list(issues_path)
-        completed = read_list(completed_path)
+        statuses = read_list(statuses_path)
+        history = read_list(history_path)
         if args.sync:
             numbers = {issue["number"] for issue in issues}
             issues.extend(issue for issue in fetch_issues() if issue["number"] not in numbers)
-        active = fill_queue(issues, completed)
+        active = fill_queue(issues, statuses, history)
 
         if args.sync:
             write_if_changed(issues_path, json.dumps(issues, ensure_ascii=False, indent=2) + "\n")
-        write_if_changed(completed_path, json.dumps(completed, ensure_ascii=False, indent=2) + "\n")
+        write_if_changed(history_path, json.dumps(history, ensure_ascii=False, indent=2) + "\n")
+        write_if_changed(statuses_path, json.dumps(statuses, ensure_ascii=False, indent=2) + "\n")
         write_if_changed(ROOT / "schedule.md", render_schedule(active))
     except (KeyError, OSError, TypeError, ValueError) as error:
         parser.exit(1, f"could not update issue queue: {error}\n")
