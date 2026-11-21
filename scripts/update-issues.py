@@ -107,16 +107,7 @@ def fill_queue(issues, statuses, history):
 
 
 def render_schedule(active):
-    lines = [
-        "# 対応予定",
-        "",
-        "対応を終えたら [issue-status.json](issue-status.json) の `status` を",
-        "`fixed`（修正済み）または `skipped`（見送り）に変更してください。",
-        "処理済みの案件は [issue-history.json](issue-history.json) に移ります。",
-        "",
-    ]
-    if not active:
-        lines.append("対応予定のIssueはありません。")
+    lines = ["# 対応中", ""]
     for position, issue in enumerate(active, start=1):
         number = issue["number"]
         title = escape(" ".join(issue["title"].split()), quote=False)
