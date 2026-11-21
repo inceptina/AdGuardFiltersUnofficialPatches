@@ -1,23 +1,17 @@
 [
   {
-    "siteurl": "economictimes.indiatimes.com",
-    "issues": [
-      221535
-    ],
+    "number": 221535,
+    "title": "economictimes.indiatimes.com ",
     "status": "open"
   },
   {
-    "siteurl": "www.bookingpressplugin.com",
-    "issues": [
-      221579
-    ],
+    "number": 221579,
+    "title": "www.bookingpressplugin.com ",
     "status": "open"
   },
   {
-    "siteurl": "butternutbakeryblog.com",
-    "issues": [
-      221605
-    ],
+    "number": 221605,
+    "title": "butternutbakeryblog.com",
     "status": "open"
   }
 ]

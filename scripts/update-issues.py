@@ -23,14 +23,6 @@ LABELS = (
 )
 QUEUE_SIZE = 3
 STATUSES = {"open", "fixed", "skipped"}
-WEB_URL = re.compile(r"https?://[^\s<>\[\]\"()]+", re.IGNORECASE)
-DOMAIN = re.compile(
-    r"(?<![\w@.\-])"
-    r"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+"
-    r"(?:xn--[a-z0-9-]+|[a-z]{2,63})(?::[0-9]+)?"
-    r"(?:/[^\s<>\[\]\"()]*)?(?![\w-]|\.[\w-])",
-    re.IGNORECASE | re.ASCII,
-)
 
 
 def fetch_issues():
@@ -73,14 +65,6 @@ def fetch_issues():
     return [{"number": issue["number"], "title": issue["title"]} for issue in ordered]
 
 
-def site_from_title(title):
-    urls = set(WEB_URL.findall(title))
-    if not urls and not title.lstrip().lower().startswith(("google play:", "app store:")):
-        urls = set(DOMAIN.findall(title))
-    # Ambiguous titles and app package names do not identify a site.
-    return next(iter(urls)) if len(urls) == 1 else None
-
-
 def fill_queue(issues, statuses, history):
     if any(record["status"] not in {"fixed", "skipped"} for record in history):
         raise ValueError("issue-history.json must contain only fixed or skipped records")
@@ -95,17 +79,16 @@ def fill_queue(issues, statuses, history):
     active = set()
     for record in [*history, *statuses]:
         status = record["status"]
-        issue_numbers = record["issues"]
-        if status not in STATUSES or not isinstance(issue_numbers, list) or not issue_numbers:
-            raise ValueError("each status record needs a valid status and an issues list")
-        for number in issue_numbers:
-            if type(number) is not int or number not in numbers:
-                raise ValueError(f"unknown issue in status files: {number}")
-            if number in tracked:
-                raise ValueError(f"issue #{number} appears more than once in the status files")
-            tracked.add(number)
+        number = record["number"]
+        if status not in STATUSES or not isinstance(record["title"], str):
+            raise ValueError("each status record needs a valid status and title")
+        if type(number) is not int or number not in numbers:
+            raise ValueError(f"unknown issue in status files: {number}")
+        if number in tracked:
+            raise ValueError(f"issue #{number} appears more than once in the status files")
+        tracked.add(number)
         if status == "open":
-            active.update(issue_numbers)
+            active.add(number)
     if len(active) > QUEUE_SIZE:
         raise ValueError(f"issue-status.json has more than {QUEUE_SIZE} open issues")
 
@@ -118,11 +101,7 @@ def fill_queue(issues, statuses, history):
         number = issue["number"]
         if number in tracked:
             continue
-        statuses.append({
-            "siteurl": site_from_title(issue["title"]),
-            "issues": [number],
-            "status": "open",
-        })
+        statuses.append({"number": number, "title": issue["title"], "status": "open"})
         active.add(number)
     return [issue for issue in issues if issue["number"] in active]
 
