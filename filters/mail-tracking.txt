@@ -1,3 +1,0 @@
-! Title: Unofficial Patches for AdGuard - Mail Tracking
-! Description: Unofficial supplemental rules for the Mail Tracking category.
-! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
