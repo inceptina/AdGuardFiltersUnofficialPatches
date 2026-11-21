@@ -63,16 +63,14 @@ def fetch_issues():
                 number = issue["number"]
                 incoming[number] = {
                     "number": number,
-                    "url": issue["html_url"],
                     "title": issue["title"],
                     "created_at": issue["created_at"],
-                    "labels": [item["name"] for item in issue["labels"]],
-                    "state": issue["state"],
                 }
             # Pages are newest first. Nothing beyond the cutoff can qualify.
             if len(batch) < 100 or batch[-1]["created_at"] < FIRST_CREATED_AT:
                 break
-    return sorted(incoming.values(), key=lambda issue: (issue["created_at"], issue["number"]))
+    ordered = sorted(incoming.values(), key=lambda issue: (issue["created_at"], issue["number"]))
+    return [{"number": issue["number"], "title": issue["title"]} for issue in ordered]
 
 
 def site_from_title(title):
