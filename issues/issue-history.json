@@ -33,5 +33,10 @@
     "number": 221802,
     "title": "amybakesbread.com",
     "status": "skipped"
+  },
+  {
+    "number": 221926,
+    "title": "www.thekitchenmagpie.com",
+    "status": "fixed"
   }
 ]
