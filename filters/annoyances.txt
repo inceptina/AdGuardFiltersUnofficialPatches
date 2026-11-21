@@ -1,3 +1,6 @@
-! Title: Unofficial Patches for AdGuard - Annoyances
-! Description: Combined unofficial filters for web annoyances.
+! Title: AdGuard Annoyances filter Unofficial Patches
+! Description: Unofficial patch for AdGuard Annoyances filter
+! Version: 261121
+! TimeUpdated: 2026-11-21T03:40:23+00:00
+! Expires: 5 days (update frequency)
 ! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

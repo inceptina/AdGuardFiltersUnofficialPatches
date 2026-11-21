@@ -1,3 +1,6 @@
-! Title: Unofficial Patches for AdGuard - Ukrainian
-! Description: Supplemental rules for the AdGuard Ukrainian filter.
+! Title: AdGuard Ukrainian filter Unofficial Patches
+! Description: Unofficial patch for AdGuard Ukrainian filter
+! Version: 261121
+! TimeUpdated: 2026-11-21T03:40:23+00:00
+! Expires: 5 days (update frequency)
 ! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

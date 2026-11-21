@@ -1,3 +1,6 @@
-! Title: Unofficial Patches for AdGuard - Turkish
-! Description: Supplemental rules for the AdGuard Turkish filter.
+! Title: AdGuard Turkish filter Unofficial Patches
+! Description: Unofficial patch for AdGuard Turkish filter
+! Version: 261121
+! TimeUpdated: 2026-11-21T03:40:23+00:00
+! Expires: 5 days (update frequency)
 ! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

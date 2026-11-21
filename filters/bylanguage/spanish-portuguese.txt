@@ -1,3 +1,6 @@
-! Title: Unofficial Patches for AdGuard - Spanish / Portuguese
-! Description: Supplemental rules for the AdGuard Spanish / Portuguese filter.
+! Title: AdGuard Spanish / Portuguese filter Unofficial Patches
+! Description: Unofficial patch for AdGuard Spanish / Portuguese filter
+! Version: 261121
+! TimeUpdated: 2026-11-21T03:40:23+00:00
+! Expires: 5 days (update frequency)
 ! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

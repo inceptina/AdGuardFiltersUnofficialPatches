@@ -1,3 +1,6 @@
-! Title: Unofficial Patches for AdGuard - Japanese
-! Description: Supplemental rules for the AdGuard Japanese filter.
+! Title: AdGuard Japanese filter Unofficial Patches
+! Description: Unofficial patch for AdGuard Japanese filter
+! Version: 261121
+! TimeUpdated: 2026-11-21T03:40:23+00:00
+! Expires: 5 days (update frequency)
 ! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

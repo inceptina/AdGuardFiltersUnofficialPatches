@@ -1,3 +1,6 @@
-! Title: Unofficial Patches for AdGuard - Other Annoyances
-! Description: Unofficial supplemental rules for the Other Annoyances category.
+! Title: AdGuard Other Annoyances filter Unofficial Patches
+! Description: Unofficial patch for AdGuard Other Annoyances filter
+! Version: 261121
+! TimeUpdated: 2026-11-21T03:40:23+00:00
+! Expires: 5 days (update frequency)
 ! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
