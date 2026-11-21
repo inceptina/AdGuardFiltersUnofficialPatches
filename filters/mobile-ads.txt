@@ -1,3 +1,0 @@
-! Title: Unofficial Patches for AdGuard - Mobile Ads
-! Description: Unofficial supplemental rules for the Mobile Ads category.
-! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

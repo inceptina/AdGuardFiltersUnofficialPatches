@@ -1,0 +1,3 @@
+! Title: Unofficial Patches for AdGuard - Annoyances
+! Description: Combined unofficial filters for web annoyances.
+! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches

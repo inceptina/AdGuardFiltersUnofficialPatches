@@ -5,7 +5,10 @@ on:
     - cron: '0 0 * * *'
   push:
     branches: [main]
-    paths: [issue-status.json]
+    paths:
+      - issue-status.json
+      - 'filters/**'
+      - scripts/build-filters.py
   workflow_dispatch:
 
 permissions:
@@ -41,11 +44,12 @@ jobs:
             git fetch --no-tags origin refs/heads/main
             git switch --detach FETCH_HEAD
             python3 scripts/update-issues.py "${sync_args[@]}"
-            git add -- issues.json issue-status.json issue-history.json schedule.md
+            python3 scripts/build-filters.py
+            git add -- issues.json issue-status.json issue-history.json schedule.md filters/annoyances.txt filters/DNS.txt
             if git diff --cached --quiet; then
               exit 0
             fi
-            git commit -m 'Update issue queue'
+            git commit -m 'Update issue queue and filter bundles'
             if git push origin HEAD:refs/heads/main; then
               exit 0
             fi
