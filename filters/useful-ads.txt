@@ -1,3 +1,0 @@
-! Title: Unofficial Patches for AdGuard - Search Ads and Self-Promotion Allowlist
-! Description: Unofficial supplemental rules for the Search Ads and Self-Promotion Allowlist category.
-! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
