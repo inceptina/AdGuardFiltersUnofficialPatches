@@ -12,7 +12,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ISSUES_DIR = Path(__file__).resolve().parents[1] / "issues"
 UPSTREAM = "AdguardTeam/AdguardFilters"
 FIRST_CREATED_AT = "2026-01-01T00:00:00Z"
 LABELS = (
@@ -147,9 +147,9 @@ def main():
     parser.add_argument("--sync", action="store_true", help="also import new upstream issues")
     args = parser.parse_args()
 
-    issues_path = ROOT / "issues.json"
-    statuses_path = ROOT / "issue-status.json"
-    history_path = ROOT / "issue-history.json"
+    issues_path = ISSUES_DIR / "issues.json"
+    statuses_path = ISSUES_DIR / "issue-status.json"
+    history_path = ISSUES_DIR / "issue-history.json"
     try:
         issues = read_list(issues_path)
         statuses = read_list(statuses_path)
@@ -163,7 +163,7 @@ def main():
             write_if_changed(issues_path, json.dumps(issues, ensure_ascii=False, indent=2) + "\n")
         write_if_changed(history_path, json.dumps(history, ensure_ascii=False, indent=2) + "\n")
         write_if_changed(statuses_path, json.dumps(statuses, ensure_ascii=False, indent=2) + "\n")
-        write_if_changed(ROOT / "schedule.md", render_schedule(active))
+        write_if_changed(ISSUES_DIR / "schedule.md", render_schedule(active))
     except (KeyError, OSError, TypeError, ValueError) as error:
         parser.exit(1, f"could not update issue queue: {error}\n")
 
