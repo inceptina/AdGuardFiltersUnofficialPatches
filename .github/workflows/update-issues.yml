@@ -7,8 +7,8 @@ on:
     branches: [main]
     paths:
       - issues/issue-status.json
-      - 'filters/**'
-      - scripts/build-filters.py
+      - scripts/update-issues.py
+      - .github/workflows/update-issues.yml
   workflow_dispatch:
 
 permissions:
@@ -44,12 +44,11 @@ jobs:
             git fetch --no-tags origin refs/heads/main
             git switch --detach FETCH_HEAD
             python3 scripts/update-issues.py "${sync_args[@]}"
-            python3 scripts/build-filters.py
-            git add -- issues/issues.json issues/issue-status.json issues/issue-history.json issues/schedule.md filters/annoyances.txt filters/dns.txt
+            git add -- issues/issues.json issues/issue-status.json issues/issue-history.json issues/schedule.md
             if git diff --cached --quiet; then
               exit 0
             fi
-            git commit -m 'Update issue queue and filter bundles'
+            git commit -m 'Update issue queue'
             if git push origin HEAD:refs/heads/main; then
               exit 0
             fi
