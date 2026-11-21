@@ -1,7 +1,7 @@
 ! Title: AdGuard Annoyances filter Unofficial Patches
 ! Description: Unofficial patch for AdGuard Annoyances filter
 ! Version: 261121
-! TimeUpdated: 2026-11-21T12:51:47+00:00
+! TimeUpdated: 2026-11-21T13:03:22+00:00
 ! Expires: 5 days (update frequency)
 ! Homepage: https://github.com/inceptina/AdGuardFiltersUnofficialPatches
 ! License: https://github.com/inceptina/AdGuardFiltersUnofficialPatches/blob/main/LICENSE
@@ -12,3 +12,5 @@ ballexclusives.com###ballexclusives-app-banner
 bookingpressplugin.com##.blk-sale-belt-wrapper
 bookingpressplugin.com##body.single-post section.final-cta
 bookingpressplugin.com##aside.art-rail > .promo-card
+! https://github.com/AdguardTeam/AdguardFilters/issues/221926
+thekitchenmagpie.com##.entry-content > .kmsr--top
